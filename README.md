@@ -112,7 +112,7 @@ npm run dev
 ```bash
 cd frontend
 cp .env.example .env
-# Set REACT_APP_API_URL=http://localhost:5000/api
+# Set REACT_APP_API_URL=https://blog-post-manager-qcd4.onrender.com/api
 npm install
 npm start
 # App runs at http://localhost:3000
