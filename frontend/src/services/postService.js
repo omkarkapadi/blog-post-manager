@@ -33,7 +33,11 @@ export const postService = {
   search: (params) => api.get("/posts/search", { params }),
 
   exportCSV: (params) => {
-    const query = new URLSearchParams(params).toString();
-    window.open(`${API_BASE}/posts/export/csv?${query}`, "_blank");
-  },
+  const filtered = Object.fromEntries(
+    Object.entries(params).filter(([_, v]) => v && v !== "")
+  );
+  const query = new URLSearchParams(filtered).toString();
+  const url = query ? `${API_BASE}/posts/export/csv?${query}` : `${API_BASE}/posts/export/csv`;
+  window.open(url, "_blank");
+},
 };
